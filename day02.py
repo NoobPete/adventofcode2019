@@ -25,9 +25,20 @@ assert(computer([2,3,0,3,99]) == [2,3,0,6,99])
 assert(computer([2,4,4,5,99,0]) == [2,4,4,5,99,9801])
 assert(computer([1,1,1,4,99,5,6,0,99]) == [30,1,1,4,2,5,6,0,99])
 
-input[1] = 12
-input[2] = 2
+computerInput = input.copy()
+computerInput[1] = 12
+computerInput[2] = 2
 
-print("Part 1:", computer(input)[0])
+print("Part 1:", computer(computerInput)[0])
 
 ## Part 2
+
+for noun in range(100):
+    for verb in range(100):
+        testInput = input.copy()
+        testInput[1] = noun
+        testInput[2] = verb
+        if computer(testInput)[0] == 19690720:
+            print("Part 2:", 100 * noun + verb)
+
+print("Finished")
